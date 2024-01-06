@@ -1,28 +1,33 @@
-import { convertToFahrenheint } from '.';
+import { convertToFahrenheit } from '.';
 
-describe('convertToFahrenheint', () => {
-  it('should convert celsius to fahrenheint', () => {
-    expect(convertToFahrenheint(0)).toBe(32);
-    expect(convertToFahrenheint(100)).toBe(212);
+describe('convertToFahrenheit', () => {
+  it('converts 0°C to Fahrenheit correctly', () => {
+    const result = convertToFahrenheit(0);
+    expect(result).toBe(32);
   });
 
-  it('convert 0 graus celsius to 32 graus fahrenheint', () => {
-    expect(convertToFahrenheint(0)).toBe(32);
-    expect(convertToFahrenheint(0)).not.toBe(0);
+  it('converts positive Celsius value to Fahrenheit correctly', () => {
+    const result = convertToFahrenheit(25);
+    expect(result).toBe(77);
   });
 
-  it('return 36 graus celsius to 96.8 graus fahrenheint', () => {
-    expect(convertToFahrenheint(36)).toBe(96.8);
-    expect(convertToFahrenheint(36)).not.toBe(0);
+  it('converts negative Celsius value to Fahrenheit correctly', () => {
+    const result = convertToFahrenheit(-10);
+    expect(result).toBe(14);
   });
 
-  it('convert negative celsius to fahrenheint', () => {
-    expect(convertToFahrenheint(-10)).toBe(14);
-    expect(convertToFahrenheint(-10)).not.toBe(0);
+  it('converts a decimal Celsius value to Fahrenheit correctly', () => {
+    const result = convertToFahrenheit(22.5);
+    expect(result).toBe(72.5);
   });
 
-  it('handles decimal values', () => {
-    expect(convertToFahrenheint(15.5)).toEqual(59.9);
-    expect(convertToFahrenheint(-10)).not.toBe(0);
+  it('converts large positive Celsius value to Fahrenheit correctly', () => {
+    const result = convertToFahrenheit(100);
+    expect(result).toBe(212);
+  });
+
+  it('converts large negative Celsius value to Fahrenheit correctly', () => {
+    const result = convertToFahrenheit(-40);
+    expect(result).toBe(-40);
   });
 });
